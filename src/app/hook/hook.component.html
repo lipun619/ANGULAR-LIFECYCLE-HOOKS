@@ -1,6 +1,7 @@
 <div>
   <h3>Life Cycle Hooks Demo</h3>
   <input type="text" (blur)="handleData($event)">
+  <br>
   <app-hook-child [parentData] = data>
     <h4 #child>This is child content from parent</h4>
   </app-hook-child>
