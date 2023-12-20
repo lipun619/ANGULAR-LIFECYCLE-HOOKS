@@ -1,8 +1,12 @@
-<div>
-  <h3>Life Cycle Hooks Demo</h3>
-  <input type="text" (blur)="handleData($event)">
-  <br>
-  <app-hook-child [parentData] = data>
-    <h4 #child>This is child content from parent</h4>
+<h2 class="text-secondary fst-italic">Life Cycle Hooks Demo</h2>
+<br><br>
+<div class="border border-primary rounded">
+  <input type="text" class="mt-3" (blur)="handleData($event)">
+  <h5>{{childData}}</h5>
+</div>
+<br>
+<div class="border border-primary rounded">
+  <app-hook-child [parentData]=data (childEvent)="childEventhandler($event)">
+    <h5 #child>This is child content from parent</h5>
   </app-hook-child>
 </div>

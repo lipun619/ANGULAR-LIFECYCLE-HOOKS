@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HookComponent implements OnInit {
   data: string = 'red';
+  childData: string = 'Nothing got from Children';
 
   constructor() { }
 
@@ -14,5 +15,9 @@ export class HookComponent implements OnInit {
 
   handleData(event: any) {
     this.data = event.target.value;
+  }
+
+  childEventhandler(event: any) {
+    this.childData = event;
   }
 }

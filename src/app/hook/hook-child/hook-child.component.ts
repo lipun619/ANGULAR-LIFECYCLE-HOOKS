@@ -7,10 +7,12 @@ import {
   ContentChild,
   DoCheck,
   ElementRef,
+  EventEmitter,
   Input,
   OnChanges,
   OnDestroy,
   OnInit,
+  Output,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -34,6 +36,7 @@ export class HookChildComponent
   count: number = 0;
   interval: any;
   @Input() parentData: string | undefined;
+  @Output() childEvent = new EventEmitter<string>();
   @ContentChild('child') childContent: ElementRef | undefined;
   @ViewChild('childHook') viewChild: ElementRef | undefined;
 
@@ -86,6 +89,11 @@ export class HookChildComponent
       'style',
       `background-color: ${this.parentData}`
     );
+  }
+
+  //Child to parent communication example
+  handleChildData(event: any): void {
+    this.childEvent.emit(event.target.value);
   }
 
   ngOnDestroy(): void {
